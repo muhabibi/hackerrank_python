@@ -11,16 +11,22 @@ from datetime import datetime
 
 # Complete the time_delta function below.
 def time_delta(d1, d2):
+    f= '%a %d %B %Y %H:%M:%S %z'
+    d1 = datetime.strptime(d1, f) 
+    d2 = datetime.strptime(d2, f) 
     res = True
     try:
-        f= '%a %d %B %Y %H:%M:%S %z'
-        d1 = datetime.strptime(d1, f) 
-        d2 = datetime.strptime(d2, f) 
         res = bool(d1) or bool(d2)
         diff = (d2-d1).total_seconds()  
         return abs(int(diff))
     except ValueError:
         res = False    
+        sys.exit()
+    except year > 3000:
+        sys.exit()
+    
+    # for _ in range(int(input())):
+    #     print(delta(input(), input()))
         
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')

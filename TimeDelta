@@ -11,7 +11,9 @@ from datetime import datetime
 
 # Complete the time_delta function below.
 def time_delta(d1, d2):
-    f= '%a %d %B %Y %H:%M:%S %z'
+    print(d1)
+    print(d2)
+    f= '%a %d %b %Y %H:%M:%S %z'
     d1 = datetime.strptime(d1, f) 
     d2 = datetime.strptime(d2, f) 
     res = True
@@ -20,7 +22,6 @@ def time_delta(d1, d2):
         diff = (d2-d1).total_seconds()  
         return abs(int(diff))
     except ValueError:
-        res = False    
         sys.exit()
     except year > 3000:
         sys.exit()
